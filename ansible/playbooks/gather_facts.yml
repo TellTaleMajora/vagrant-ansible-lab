@@ -1,0 +1,14 @@
+---
+ - name: gather_facts
+   hosts: all
+   gather_facts: True
+
+   tasks:
+
+   - name: Display ipv4 information for remote host
+     debug:
+       var: ansible_all_ipv4_addresses
+
+   - name: Display ipv4 information for remote host
+     debug:
+       var: ansible_distribution
