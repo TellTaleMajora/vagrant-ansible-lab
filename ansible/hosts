@@ -2,8 +2,8 @@
 [webservers]
 app01
 
-[database]
-db01
+[nodes]
+node01
 
 [controller]
 control ansible_connection=local

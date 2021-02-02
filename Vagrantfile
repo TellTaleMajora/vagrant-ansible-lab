@@ -45,8 +45,8 @@ EOF
     h.vm.provision :shell, inline: 'cat /vagrant/control.pub >> /home/vagrant/.ssh/authorized_keys'
   end
 
-  config.vm.define "db01" do |h|
-    h.vm.hostname = "db01"
+  config.vm.define "node01" do |h|
+    h.vm.hostname = "node01"
     h.vm.network "private_network", ip: "192.168.135.121"
     h.vm.provision :shell, inline: 'cat /vagrant/control.pub >> /home/vagrant/.ssh/authorized_keys'
   end

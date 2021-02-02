@@ -1,6 +1,6 @@
 ---
   - name: vars_playbook
-    hosts: webserver
+    hosts: webservers
     remote_user: vagrant
     become: yes
     become_user: root
@@ -16,7 +16,11 @@
           shell: /bin/bash
           groups: adm
           append: yes
-   
+  
+      - name: Return users part of adm 
+        shell: cat /etc/group | grep -w adm
+        register: passwd_results
+
       - name: Gathering ansible facts 
         debug:
-          msg: Users found in adm group "{{ohai_etc.group.adm.members}}"
+          msg: Users found in adm group for {{ inventory_hostname }} is {{ passwd_results.stdout }} 
