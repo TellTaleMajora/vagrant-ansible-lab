@@ -1,0 +1,21 @@
+---
+  - name: simple_list
+    hosts: app01
+    become: yes 
+    vars:
+      #set the variable 
+      region:
+        - northeast
+        - southeast
+        - midwest 
+       
+      confused: [ 'Whiskey', 'Bourbon', 'Scotch' ]
+
+    tasks:
+      - name: Print our first list 
+        debug:
+          msg: region "{{ region[0] }}"
+
+      - name: The drink of choice
+        debug:
+          msg: Drink "{{ confused[2] }}"

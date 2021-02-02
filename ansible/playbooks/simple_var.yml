@@ -1,0 +1,12 @@
+---
+  - name: basic_playbook
+    hosts: app01
+    become: yes 
+    vars:
+      #set the variable 
+      remote_install_path: //opt/my_app_config
+
+    tasks:
+      - name: Update all packages to their latest version
+        debug:
+          msg: path {{ remote_install_path }}

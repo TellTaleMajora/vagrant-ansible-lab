@@ -1,0 +1,18 @@
+---
+  - name: simple_dict
+    hosts: app01
+    become: yes 
+    vars:
+      #set the variable 
+      logging:
+        level: debug
+        file: /var/log/app.log
+
+    tasks:
+      - name: Print the log level 
+        debug:
+          msg: The logging level is "{{ logging.level }}"
+
+      - name: Print the log file, note the brackets
+        debug:
+          msg: logging file "{{ logging['file'] }}"
