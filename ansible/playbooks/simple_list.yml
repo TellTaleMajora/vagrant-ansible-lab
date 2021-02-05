@@ -14,8 +14,8 @@
     tasks:
       - name: Print our first list 
         debug:
-          msg: region "{{ region[0] }}"
+          msg: "region {{ region[0] }}"
 
       - name: The drink of choice
         debug:
-          msg: Drink "{{ confused[2] }}"
+          msg: "Drink {{ confused[2] }}"

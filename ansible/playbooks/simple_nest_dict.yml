@@ -14,8 +14,8 @@
     tasks:
       - name: Print the log level 
         debug:
-          msg: The logging level is "{{ logging.level }}"
+          msg: "The logging level is {{ logging.level }}"
 
       - name: Print the log file
         debug:
-          msg: logging file "{{ logging.file.path }}"
+          msg: "logging file {{ logging.file.path }}"

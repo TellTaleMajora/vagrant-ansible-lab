@@ -1,6 +1,6 @@
 ---
 - name: Patch systems
-  hosts: patch
+  hosts: all
   become: yes
 
   tasks:
