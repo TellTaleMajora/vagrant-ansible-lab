@@ -1,6 +1,6 @@
 ---
   - name: vars_playbook
-    hosts: webservers
+    hosts: all
     remote_user: vagrant
     become: yes
     become_user: root
@@ -23,4 +23,4 @@
 
       - name: Gathering ansible facts 
         debug:
-          msg: Users found in adm group for {{ inventory_hostname }} is {{ passwd_results.stdout }} 
+          msg: Users found in adm group for {{ ansible_hostname }} is {{ passwd_results.stdout }} 

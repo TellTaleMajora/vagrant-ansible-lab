@@ -1,6 +1,6 @@
 ---
   - name: template_playbook
-    hosts: webserver
+    hosts: all
     remote_user: vagrant
     become: yes
     become_user: root
@@ -16,6 +16,7 @@
           src: "../templates/index.html.j2"
           dest: /var/www/html/index.html
           mode: 0777
+          backup: yes
 
       - name: restart the apache service
         service:
