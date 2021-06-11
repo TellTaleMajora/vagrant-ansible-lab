@@ -1,9 +1,7 @@
 # Ansible hosts file
-[webservers]
-app01
-
 [nodes]
 node01
+node02
 
 [controller]
 control ansible_connection=local

@@ -13,7 +13,7 @@
 Vagrant.configure(2) do |config|
   config.hostmanager.enabled = true
 
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "centos/7"
 
   config.vm.define "control", primary: true do |h|
     h.vm.hostname =  "control"
@@ -39,14 +39,14 @@ chown -R vagrant:vagrant /home/vagrant/.ssh/
 EOF
   end
 
-  config.vm.define "app01" do |h|
-    h.vm.hostname = "app01"
+  config.vm.define "node01" do |h|
+    h.vm.hostname = "node01"
     h.vm.network "private_network", ip: "192.168.135.111"
     h.vm.provision :shell, inline: 'cat /vagrant/control.pub >> /home/vagrant/.ssh/authorized_keys'
   end
 
-  config.vm.define "node01" do |h|
-    h.vm.hostname = "node01"
+  config.vm.define "node02" do |h|
+    h.vm.hostname = "node02"
     h.vm.network "private_network", ip: "192.168.135.121"
     h.vm.provision :shell, inline: 'cat /vagrant/control.pub >> /home/vagrant/.ssh/authorized_keys'
   end
